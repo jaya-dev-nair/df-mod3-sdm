@@ -1,0 +1,8 @@
+
+Path   : Microsoft.PowerShell.Core\FileSystem::D:\NWMSU\Fall 2026\Digital Forensics\df-mod3-sdm\3-Evidence-Encrypted
+Owner  : BUILTIN\Administrators
+Group  : JAYADEV\jayad
+Access : BUILTIN\Administrators Allow  FullControl
+Audit  : 
+Sddl   : O:BAG:S-1-5-21-3546133007-314955004-1099260993-1001D:PAI(A;OICI;FA;;;BA)
+
