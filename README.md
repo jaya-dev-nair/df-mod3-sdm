@@ -88,3 +88,25 @@ Get-ChildItem -Path $backup -File | ForEach-Object {
 Write-Output "Backup complete and locked as Read-Only."
 ```
 * **Why This Matters:** Automating backups and read-only enforcement reduces human error, ensures repeatable forensic workflows, and preserves evidence integrity immediately upon collection.
+
+---
+
+## Bonus: Additional Forensic & Integrity Commands
+
+To further strengthen evidence verification and system state collection beyond the base requirements, I ran three additional PowerShell and Windows CLI commands:
+
+```powershell
+# 1. Verify file integrity using SHA256 hashes before and after backup
+Get-FileHash ".\Case-Source\custody.txt", ".\Case-Backup\custody.txt" -Algorithm SHA256 | Export-Csv -Path "hash-verification.csv" -NoTypeInformation
+
+# 2. Verify EFS encryption status and certificate thumbprints on the encrypted evidence file
+cipher /c "3-Evidence-Encrypted\case-notes.txt" > encryption-status.txt
+
+# 3. Capture active TCP network connections for volatile system state documentation
+Get-NetTCPConnection | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort, State | Export-Csv -Path "network-connections.csv" -NoTypeInformation
+```
+
+### Forensic Value of Additional Commands
+* **Cryptographic Hashing (`Get-FileHash`):** Generates SHA256 checksums for both the original and backed-up files in `hash-verification.csv`, proving mathematically that no bits changed during transfer and upholding chain-of-custody integrity.
+* **Encryption Verification (`cipher /c`):** Audits the Windows Encrypting File System (EFS) metadata on `case-notes.txt` and outputs the authorized user certificate details to `encryption-status.txt`, verifying confidentiality at rest.
+* **Volatile Network Artifact Collection (`Get-NetTCPConnection`):** Captures active local/remote IP addresses, ports, and connection states into `network-connections.csv`, preserving volatile network evidence before it is lost.

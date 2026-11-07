@@ -1,0 +1,19 @@
+
+ Listing D:\NWMSU\Fall 2026\Digital Forensics\df-mod3-sdm\3-Evidence-Encrypted\
+ New files added to this directory will be encrypted.
+
+E case-notes.txt
+  Compatibility Level:
+    Windows XP/Server 2003
+
+  Users who can decrypt:
+    JAYADEV\jayad [jayad(jayad@JAYADEV)]
+    Certificate thumbprint: 3AC0 AB30 FB00 AD31 0632 BD4E 89C9 BEE2 5210 4F45 
+
+  No recovery certificate found.
+
+  Key Information:
+    Algorithm: AES
+    Key Length: 256
+    Key Entropy: 256
+
